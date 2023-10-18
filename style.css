@@ -1,0 +1,297 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  font-size: 62.5%;
+
+  --hue: 200;
+  --color-header: hsl(195, 46%, 40%);
+
+  --color-base-white: hsl(0, 0%, 100%);
+  --color-base-gray-100: hsl(0, 0%, 96%);
+  --color-base-gray-300: hsl(var(--hue), 6%, 58%);
+  --color-base-gray-500: hsl(0, 0%, 24%);
+  --color-base-gray-900: hsl(var(--hue), 6%, 13%);
+
+}
+
+html,
+body,
+input {
+  font-family: 'Mulish', sans-serif;
+}
+
+body {
+  font-size: 1.6rem;
+  background-color: var(--color-base-white);
+  color: var(--color-base-gray-900);
+}
+
+#app {
+  display: grid;
+  grid-template-rows: max-content 1fr max-content;
+  height: 100vh;
+}
+
+.container {
+  width: min(112rem, 100%);
+  margin: 0 auto;
+  background-color: var(--color-header);
+}
+
+
+main {
+  overflow-y: scroll;
+  background-color: var(--color-base-white);
+  margin: 0 auto;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 2.25rem;
+  
+  /* width: 43rem;
+  height: 7.2rem; */
+  padding: 1.2rem 2.8rem;
+
+  font-weight: 700;
+}
+
+.form {
+  flex: 1;
+}
+
+.logo {
+  background-color: var(--color-base-white);
+  width: 4.2rem;
+  height: 4.2rem;
+  object-fit: none;
+
+  border-radius: 50%;
+}
+
+.input-wrapper label {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 1.6rem 1.4rem;
+
+  background-color: var(--color-base-gray-100);
+  border: 0;
+  border-radius: .6rem;
+
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.input-wrapper input::placeholder {
+  opacity: .56rem;
+  color: var(--color-base-gray-500);
+}
+
+.avatar img {
+  width: 4.2rem;
+  height: 4.2rem;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+}
+
+main h1 {
+  font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 160%;
+    margin-top: 3.1rem;
+    margin-left: 2.2rem; 
+}
+
+button {
+  background-color: var(--color-header);
+
+  padding: 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+  border:none;
+
+  object-fit: none;
+
+  border-radius: 50%;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.2rem;
+}
+
+.content p {
+  margin: 3.1rem auto;
+  line-height: 160%;
+}
+
+.item {
+  background-color: var(--color-base-white);
+  border-radius: .8rem;
+  overflow: hidden;
+}
+
+.item img {
+  width: 100%;
+  aspect-ratio: 2/1;
+  object-fit: cover;
+
+  /* transition-property: all;
+  transition-duration: 200ms;
+  transition-delay: 0;
+  transition-timing-function: ease-out; */
+
+  transition: all 200ms ease-out;
+  filter: grayscale(.2);
+
+  display: block;
+}
+
+.item img:hover {
+  filter: hue-rotate(7deg) contrast(101%) saturate(200%);
+  transform: scale(1.1) rotate(-2deg);
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  margin: 3.2rem 2.2rem;
+
+  gap: 3.2rem;
+}
+
+aside h2 { 
+  /* color: var(--platform-aliases-shape-principal, #202024); */
+
+  font-size: 2.4rem;
+
+  font-weight: 700;
+  line-height: 160%
+}
+
+.details {
+  padding: 2.4rem;
+  background-color: var(--color-base-white);
+  z-index: 1;
+  position: relative;
+}
+
+.details h3 {
+  font-size: 1.8rem;
+}
+
+footer p {
+  padding: 1.6rem;
+
+  font-weight: 600;
+  text-align: center;
+}
+
+header {
+  --startY: -100%;
+  animation: move .2s;
+}
+
+footer {
+  --startY: 100%;
+  animation: move .2s;
+}
+
+@keyframes move {
+  from {
+    transform: translateY(var(--startY));
+  }
+}
+
+.item {
+  --delay: .4s;
+  animation: appear .4s .4s backwards;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+@media (min-width: 1028px) {
+  #app {
+    display: grid;
+    grid-template-areas: 
+    "header header header"
+    "main main aside"
+    "footer footer footer";
+    margin: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+  }
+
+  header {
+    grid-area: header;
+  }
+
+  .input-wrapper input {
+    width: 108.3rem; 
+  }
+
+  main {
+    grid-area: main;
+  }
+
+  main .title img:nth-last-child(0) {
+    margin-top: 4.4rem;
+
+    width: 80.3rem;
+    height: 40.5rem;
+    flex-shrink: 0;
+  }
+
+  aside {
+    grid-area: aside;
+  }
+
+  main {
+    margin-left: 10.9rem;
+  }
+
+  .content p {
+    width: 80rem;
+    margin-bottom: 3.9rem;
+  }
+
+  aside {
+    margin-right: 10.9rem;
+    margin-left: 3.4rem;
+  }
+
+  footer {
+    grid-area: footer;
+  }
+  
+
+}

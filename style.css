@@ -55,12 +55,6 @@ nav {
   font-weight: 700;
 }
 
-main {
-  overflow-y: scroll;
-  background-color: var(--color-base-white);
-  margin: 0 auto;
-}
-
 form {
   flex: 1;
 }
@@ -107,6 +101,12 @@ form {
   object-fit: cover;
 
   border-radius: 50%;
+}
+
+main {
+  overflow-y: scroll;
+  background-color: var(--color-base-white);
+  margin: 0 auto;
 }
 
 .title-img {

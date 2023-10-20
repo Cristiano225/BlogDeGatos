@@ -15,6 +15,7 @@
   --color-base-white: hsl(0, 0%, 100%);
   --color-base-dark: hsl(240, 6%, 13%);
   --color-base-gray: rgba(255, 255, 255, 0.20);
+  --desktop-backgroud: hsl(196, 100%, 98%);
 }
 
 html,
@@ -278,6 +279,7 @@ footer {
 
     width: 100vw;
     height: 100vh;
+    background-color:var(--desktop-backgroud);
   }
 
   header {
@@ -294,6 +296,7 @@ footer {
     justify-self: end;
     margin-top: 4.4rem;
     width: 60rem;
+    background-color:var(--desktop-backgroud);
   }
 
   .title-img {

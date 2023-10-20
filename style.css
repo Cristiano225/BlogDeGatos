@@ -111,18 +111,18 @@ form {
 
 .title-img {
   width: 100%;
-  aspect-ratio: 2/1;
+  aspect-ratio: 16/9;
   object-fit: cover;
 
-  margin:  -1.17rem -2rem 0 ;
+  margin: -1.17rem -1.7rem 0;
 
   transition: all 200ms ease-out;
   filter: grayscale(.2);
+  display: block;
 }
 
 .title-img img:hover {
   filter: hue-rotate(7deg) contrast(101%) saturate(200%);
-  transform: scale(1.1) rotate(-2deg);
 }
 
 main h1 {
@@ -140,9 +140,9 @@ button {
   justify-content: center;
   align-items: center;
   gap: 1.2rem;
-  
+
   object-fit: none;
-  
+
   margin-left: 2.2rem;
   border-radius: 50%;
   border: none;
@@ -155,37 +155,59 @@ button {
 }
 
 .content p {
-  margin: 0 auto 3.1rem ;
+  margin: 0 auto 3.1rem;
   line-height: 160%;
-  
 }
 
-aside {
+sidebar {
   display: flex;
   flex-direction: column;
-  margin: 3.2rem 2.2rem;
-
-  gap: 3.2rem;
 }
 
-aside h2 {
-  /* color: var(--platform-aliases-shape-principal, #202024); */
+sidebar .items {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+sidebar h2 {
+  margin: 0.3rem 1.7rem 0.6rem 0;
 
   font-size: 2.4rem;
 
   font-weight: 700;
-  line-height: 160%
+  line-height: 160%;
 }
 
-.details {
+figure {
+  display: flex;
+
+  align-content: center;
+  gap: 2.6rem;
+}
+
+.card img {
+  width: 15.1rem;
+  height: 8.4rem;
+  border-radius: .5rem;
+  object-fit: cover;
+}
+
+.card {
   padding: 2.4rem;
-  background-color: var(--color-base-white);
   z-index: 1;
   position: relative;
 }
 
-.details h3 {
+.card h3 {
   font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 160%;
+}
+
+.card p {
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%;
 }
 
 footer p {
@@ -194,9 +216,12 @@ footer p {
   font-weight: 600;
   text-align: center;
 }
-header, footer {
+
+header,
+footer {
   background-color: var(--color-header);
 }
+
 header {
   --startY: -100%;
   animation: move .2s;
@@ -234,7 +259,7 @@ footer {
     display: grid;
     grid-template-areas:
       "header header header"
-      "main main aside"
+      "main main sidebar"
       "footer footer footer";
     margin: 0;
 

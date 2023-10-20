@@ -11,14 +11,10 @@
   font-size: 62.5%;
 
   --hue: 200;
-  --color-header: hsl(195, 46%, 40%);
-
+  --dark-turquoise: hsl(195, 46%, 40%);
   --color-base-white: hsl(0, 0%, 100%);
-  --color-base-gray-100: hsl(0, 0%, 96%);
-  --color-base-gray-300: hsl(var(--hue), 6%, 58%);
-  --color-base-gray-500: hsl(0, 0%, 24%);
-  --color-base-gray-900: hsl(var(--hue), 6%, 13%);
-
+  --color-base-dark: hsl(240, 6%, 13%);
+  --color-base-gray: rgba(255, 255, 255, 0.20);
 }
 
 html,
@@ -30,7 +26,7 @@ input {
 body {
   font-size: 1.6rem;
   background-color: var(--color-base-white);
-  color: var(--color-base-gray-900);
+  color: var(--color-base-dark);
 }
 
 #app {
@@ -40,6 +36,8 @@ body {
     "main main"
     "sidebar sidebar"
     "footer footer";
+
+    height: 100vh;
 }
 
 .container {
@@ -94,7 +92,7 @@ form {
   gap: 12px;
   flex: 1 0 0;
 
-  background-color: var(--color-base-gray-100);
+  background-color: var(--color-base-gray);
   border: 0;
   border-radius: .4rem;
 
@@ -104,7 +102,7 @@ form {
 
 .input-wrapper input::placeholder {
   opacity: .56rem;
-  color: var(--color-base-gray-500);
+  color: var(--color-base-white);
 }
 
 .avatar {
@@ -129,8 +127,6 @@ main {
   object-fit: cover;
   overflow: hidden;
 
-  /* margin: -1.17rem -1.7rem 0; */
-
   transition: all 200ms ease-out;
   filter: grayscale(.2);
   display: block;
@@ -149,7 +145,7 @@ main h1 {
 }
 
 button {
-  background-color: var(--color-header);
+  background-color: var(--dark-turquoise);
 
   padding: 1.2rem;
   justify-content: center;
@@ -171,12 +167,12 @@ button {
 .content p {
   margin: 0 auto 3.1rem;
   line-height: 160%;
+  font-size: 1.6rem;
 }
 
 sidebar {
   display: grid;
   grid-area: sidebar;
-
 }
 
 sidebar .items {
@@ -230,15 +226,16 @@ footer p {
 
   font-weight: 600;
   text-align: center;
+  color: var(--color-base-white);
 }
 
 header,
 footer {
-  background-color: var(--color-header);
+  background-color: var(--dark-turquoise);
 }
 
 header {
-  --startY: -100%;
+  --startY: %;
   animation: move .2s;
 }
 
@@ -310,7 +307,6 @@ footer {
   main {
     margin-left: 10.9rem;
   }
-
  
   sidebar {
     margin-right: 10.9rem;
@@ -320,8 +316,6 @@ footer {
   footer {
     grid-area: footer;
   }
-
-
 }
 
 @media (min-width: 1200px) {

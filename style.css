@@ -35,8 +35,11 @@ body {
 
 #app {
   display: grid;
-  grid-template-rows: max-content 1fr max-content;
-  height: 100vh;
+    grid-template:
+    "header header"
+    "main main"
+    "sidebar sidebar"
+    "footer footer";
 }
 
 .container {
@@ -44,6 +47,16 @@ body {
   margin: 0 auto;
   padding: 1.2rem 2.8rem;
 
+  align-items: center;
+}
+
+header {
+  grid-area: header;
+  width: 100%;
+}
+
+header .content {
+  display: flex;
   align-items: center;
 }
 
@@ -104,6 +117,7 @@ form {
 }
 
 main {
+  grid-area: main;
   overflow-y: scroll;
   background-color: var(--color-base-white);
   margin: 0 auto;
@@ -111,10 +125,11 @@ main {
 
 .title-img {
   width: 100%;
-  aspect-ratio: 16/9;
+  aspect-ratio: 1/1;
   object-fit: cover;
+  overflow: hidden;
 
-  margin: -1.17rem -1.7rem 0;
+  /* margin: -1.17rem -1.7rem 0; */
 
   transition: all 200ms ease-out;
   filter: grayscale(.2);
@@ -150,7 +165,6 @@ button {
 
 .content {
   display: grid;
-  /* grid-template-columns: repeat(2, 1fr); */
   gap: 2.2rem;
 }
 
@@ -160,8 +174,9 @@ button {
 }
 
 sidebar {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-area: sidebar;
+
 }
 
 sidebar .items {
@@ -230,6 +245,7 @@ header {
 footer {
   --startY: 100%;
   animation: move .2s;
+  grid-area: footer;
 }
 
 @keyframes move {
@@ -243,7 +259,7 @@ footer {
   animation: appear .4s .4s backwards;
 }
 
-/* @keyframes appear {
+@keyframes appear {
   0% {
     opacity: 0;
     transform: scale(0.7);
@@ -254,7 +270,7 @@ footer {
   }
 }
 
-@media (min-width: 1028px) {
+@media (min-width: 1000px) {
   #app {
     display: grid;
     grid-template-areas:
@@ -265,43 +281,38 @@ footer {
 
     width: 100vw;
     height: 100vh;
-
   }
 
   header {
-    grid-area: header;
+    justify-self: start;
   }
 
-  .input-wrapper input {
-    width: 108.3rem;
+  header .content {
+    margin: 0 auto;
+    max-width: 115rem;
   }
-
+  
   main {
     grid-area: main;
-  }
-
-  main .title img:nth-last-child(0) {
+    justify-self: end;
     margin-top: 4.4rem;
-
-    width: 80.3rem;
-    height: 40.5rem;
-    flex-shrink: 0;
+    width: 60rem;
   }
 
-  aside {
-    grid-area: aside;
+  .title-img {
+    padding: 0 2.2rem;;
+  }
+
+  sidebar {
+    grid-area: sidebar;
   }
 
   main {
     margin-left: 10.9rem;
   }
 
-  .content p {
-    width: 80rem;
-    margin-bottom: 3.9rem;
-  }
-
-  aside {
+ 
+  sidebar {
     margin-right: 10.9rem;
     margin-left: 3.4rem;
   }
@@ -311,4 +322,14 @@ footer {
   }
 
 
-} */
+}
+
+@media (min-width: 1200px) {
+  main {
+      width: 80rem;
+  }
+  .title-img{
+      justify-content: space-between;
+      display: flex;
+  }
+}

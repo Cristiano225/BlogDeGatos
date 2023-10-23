@@ -32,13 +32,14 @@ body {
 
 #app {
   display: grid;
-    grid-template:
+  grid-template:
     "header header"
     "main main"
     "sidebar sidebar"
     "footer footer";
 
-    height: 100vh;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 3fr 1fr;
 }
 
 .container {
@@ -120,10 +121,16 @@ main {
   overflow-y: scroll;
   background-color: var(--color-base-white);
   margin: 0 auto;
+  display: flex;
 }
 
 .title-img {
-  width: 100%;
+  display: flex;
+}
+
+.title-img img {
+  width: 80.3rem;
+  max-height: 40.5rem;
   aspect-ratio: 1/1;
   object-fit: cover;
   overflow: hidden;
@@ -279,28 +286,38 @@ footer {
 
     width: 100vw;
     height: 100vh;
-    background-color:var(--desktop-backgroud);
+
+  }
+
+  body,
+  #app,
+  main,
+  sidebar {
+    background-color: var(--desktop-backgroud);
   }
 
   header {
     justify-self: start;
   }
 
+  .container {
+    width:  100%;
+  }
+
   header .content {
     margin: 0 auto;
     max-width: 115rem;
   }
-  
+
   main {
     grid-area: main;
     justify-self: end;
     margin-top: 4.4rem;
     width: 60rem;
-    background-color:var(--desktop-backgroud);
   }
 
   .title-img {
-    padding: 0 2.2rem;;
+    padding: 0 2.2rem;
   }
 
   sidebar {
@@ -310,7 +327,7 @@ footer {
   main {
     margin-left: 10.9rem;
   }
- 
+
   sidebar {
     margin-right: 10.9rem;
     margin-left: 3.4rem;
@@ -323,10 +340,11 @@ footer {
 
 @media (min-width: 1200px) {
   main {
-      width: 80rem;
+    width: 80rem;
   }
-  .title-img{
-      justify-content: space-between;
-      display: flex;
+
+  .title-img {
+    justify-content: space-between;
+    display: flex;
   }
 }
